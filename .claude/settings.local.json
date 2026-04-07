@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-video@latest --template blank remotion-project)",
+      "Bash(export PATH=\"/opt/homebrew/bin:/usr/local/bin:$HOME/.nvm/versions/node/*/bin:$PATH\")",
+      "Read(//Users/simondegreyte/Digitalverse/website/$HOME/.nvm/versions/**)",
+      "Read(//opt/homebrew/lib/**)",
+      "Read(//usr/local/lib/**)",
+      "Bash(mdfind -name node)",
+      "Bash(grep -i \"bin/node$\")",
+      "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh)",
+      "Bash(bash)"
+    ]
+  }
+}

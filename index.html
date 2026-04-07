@@ -1,0 +1,2048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digitalverse — AI That Runs Your Front Office | Western Sydney & Blue Mountains</title>
+  <meta name="description" content="Stop losing $126K/year to missed calls. Digitalverse gives trade businesses a 24/7 AI front office that captures leads, books jobs, and manages your business — all in plain English." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #060a14;
+      --bg2:       #0a1020;
+      --bg3:       #111827;
+      --blue:      #3b82f6;
+      --blue-glow: #60a5fa;
+      --blue-dim:  #1d4ed8;
+      --green:     #4ade80;
+      --green-dim: #166534;
+      --amber:     #fbbf24;
+      --red:       #f87171;
+      --silver:    #cbd5e1;
+      --silver-dim:#94a3b8;
+      --white:     #f1f5f9;
+      --border:    rgba(59,130,246,0.18);
+      --radius:    14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blue-glow);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 16px;
+      margin-bottom: 20px;
+      background: rgba(59,130,246,0.07);
+    }
+    .tag-green {
+      color: var(--green);
+      border-color: rgba(74,222,128,0.25);
+      background: rgba(74,222,128,0.08);
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+    }
+    .section-sub {
+      color: var(--silver-dim);
+      font-size: 18px;
+      margin-top: 14px;
+      max-width: 640px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── PARTICLES CANVAS ── */
+    #particles {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0; pointer-events: none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(6,10,20,0.7);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(59,130,246,0.08);
+      transition: all .3s;
+    }
+    nav.scrolled {
+      background: rgba(6,10,20,0.95);
+      border-bottom-color: rgba(59,130,246,0.15);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 34px; width: 34px; border-radius: 50%; }
+    .nav-logo-text {
+      font-size: 14px; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--white);
+    }
+    .nav-logo-text span { color: var(--blue-glow); }
+    .nav-links {
+      display: flex; align-items: center; gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--silver-dim); font-size: 13px; font-weight: 500;
+      text-decoration: none; letter-spacing: .02em;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--blue), #7c3aed);
+      color: #fff; border: none;
+      border-radius: 8px; padding: 10px 24px;
+      font-size: 13px; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: all .3s;
+      box-shadow: 0 0 20px rgba(59,130,246,0.2);
+    }
+    .nav-cta:hover {
+      box-shadow: 0 0 30px rgba(59,130,246,0.5), 0 0 60px rgba(124,58,237,0.2);
+      transform: translateY(-1px);
+    }
+    .nav-mobile { display: none; cursor: pointer; background: none; border: none; color: var(--white); font-size: 24px; }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), #7c3aed);
+      color: #fff; border: none;
+      border-radius: 12px; padding: 16px 40px;
+      font-size: 16px; font-weight: 700;
+      cursor: pointer; text-decoration: none;
+      transition: all .3s;
+      display: inline-block;
+      box-shadow: 0 4px 20px rgba(59,130,246,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left .5s;
+    }
+    .btn-primary:hover::before { left: 100%; }
+    .btn-primary:hover {
+      box-shadow: 0 6px 30px rgba(59,130,246,0.5), 0 0 60px rgba(124,58,237,0.2);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: rgba(255,255,255,0.03); color: var(--silver);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 16px 40px;
+      font-size: 16px; font-weight: 500;
+      cursor: pointer; text-decoration: none;
+      transition: all .3s;
+      display: inline-block;
+    }
+    .btn-ghost:hover {
+      border-color: var(--blue);
+      color: var(--blue-glow);
+      background: rgba(59,130,246,0.05);
+      box-shadow: 0 0 20px rgba(59,130,246,0.1);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 140px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 20%, rgba(59,130,246,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(124,58,237,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 80% 60%, rgba(59,130,246,0.08) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 30%, black 30%, transparent 80%);
+      animation: gridPulse 8s ease-in-out infinite;
+    }
+    @keyframes gridPulse {
+      0%, 100% { opacity: .5; }
+      50% { opacity: 1; }
+    }
+
+    /* Orbiting ring */
+    .hero-ring {
+      position: absolute;
+      width: 700px; height: 700px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(59,130,246,0.06);
+      z-index: 0;
+      animation: ringRotate 30s linear infinite;
+    }
+    .hero-ring::before {
+      content: '';
+      position: absolute;
+      width: 8px; height: 8px;
+      background: var(--blue-glow);
+      border-radius: 50%;
+      top: -4px; left: 50%;
+      box-shadow: 0 0 20px var(--blue-glow), 0 0 40px var(--blue);
+    }
+    .hero-ring-2 {
+      width: 500px; height: 500px;
+      border-color: rgba(124,58,237,0.06);
+      animation-duration: 20s;
+      animation-direction: reverse;
+    }
+    .hero-ring-2::before {
+      background: #a78bfa;
+      box-shadow: 0 0 20px #a78bfa, 0 0 40px #7c3aed;
+    }
+    @keyframes ringRotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 860px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.2);
+      border-radius: 100px;
+      padding: 7px 18px;
+      font-size: 12px; font-weight: 600;
+      color: var(--green);
+      margin-bottom: 32px;
+      animation: badgePulse 3s ease-in-out infinite;
+    }
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.1); }
+      50% { box-shadow: 0 0 20px 4px rgba(74,222,128,0.08); }
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: dotPulse 2s infinite;
+    }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(.8); }
+    }
+    .hero-title {
+      font-size: clamp(40px, 7vw, 76px);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -.04em;
+      margin-bottom: 24px;
+    }
+    .hero-title .highlight {
+      background: linear-gradient(135deg, var(--blue-glow), #a78bfa, var(--blue-glow));
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .hero-sub {
+      font-size: clamp(17px, 2vw, 20px);
+      color: var(--silver-dim);
+      max-width: 620px;
+      margin: 0 auto 20px;
+    }
+    .hero-stat {
+      display: inline-block;
+      font-size: 14px; font-weight: 700;
+      color: var(--red);
+      margin-bottom: 40px;
+      padding: 8px 20px;
+      background: rgba(248,113,113,0.08);
+      border: 1px solid rgba(248,113,113,0.15);
+      border-radius: 100px;
+      animation: statPulse 3s ease-in-out infinite;
+    }
+    @keyframes statPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(248,113,113,0.1); }
+      50% { box-shadow: 0 0 20px 4px rgba(248,113,113,0.06); }
+    }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      color: var(--silver-dim); font-size: 11px; letter-spacing: .1em;
+      text-transform: uppercase; z-index: 1;
+    }
+    .scroll-dot {
+      width: 20px; height: 32px;
+      border: 1.5px solid var(--silver-dim);
+      border-radius: 12px;
+      display: flex; align-items: flex-start; justify-content: center;
+      padding-top: 5px;
+    }
+    .scroll-dot::after {
+      content: '';
+      width: 4px; height: 8px;
+      background: var(--blue-glow);
+      border-radius: 2px;
+      animation: scrollpulse 1.8s infinite;
+    }
+    @keyframes scrollpulse {
+      0%,100% { transform: translateY(0); opacity: 1; }
+      80%      { transform: translateY(10px); opacity: 0; }
+    }
+
+    /* ── COUNTER BAR ── */
+    .counter-bar {
+      position: relative; z-index: 1;
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(124,58,237,0.06));
+      border-top: 1px solid rgba(59,130,246,0.1);
+      border-bottom: 1px solid rgba(59,130,246,0.1);
+      padding: 36px 0;
+    }
+    .counter-bar-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 60px; flex-wrap: wrap;
+    }
+    .counter-item { text-align: center; }
+    .counter-item .number {
+      font-size: 32px; font-weight: 900;
+      background: linear-gradient(135deg, var(--blue-glow), #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .counter-item .label {
+      font-size: 11px; color: var(--silver-dim);
+      text-transform: uppercase; letter-spacing: .1em;
+      margin-top: 4px;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 0; position: relative; z-index: 1; }
+
+    /* ── PAIN ── */
+    #pain {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    #pain::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(248,113,113,0.06) 0%, transparent 70%);
+      z-index: 0;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 48px;
+      position: relative; z-index: 1;
+    }
+    .pain-card {
+      background: linear-gradient(135deg, rgba(248,113,113,0.04), rgba(248,113,113,0.01));
+      border: 1px solid rgba(248,113,113,0.1);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .pain-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(248,113,113,0.4), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .pain-card:hover {
+      border-color: rgba(248,113,113,0.25);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(248,113,113,0.05);
+    }
+    .pain-card:hover::before { opacity: 1; }
+    .pain-icon { font-size: 28px; margin-bottom: 14px; }
+    .pain-card h3 {
+      font-size: 16px; font-weight: 700;
+      color: #fca5a5; margin-bottom: 10px;
+    }
+    .pain-card p { font-size: 14px; color: var(--silver-dim); line-height: 1.6; }
+
+    /* ── FULL-WIDTH BREAK ── */
+    .break-banner {
+      position: relative; z-index: 1;
+      padding: 80px 24px;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(59,130,246,0.12), rgba(124,58,237,0.08));
+      border-top: 1px solid rgba(59,130,246,0.15);
+      border-bottom: 1px solid rgba(59,130,246,0.15);
+      overflow: hidden;
+    }
+    .break-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 50% 80% at 50% 50%, rgba(59,130,246,0.1), transparent);
+    }
+    .break-banner h2 {
+      font-size: clamp(24px, 4vw, 42px);
+      font-weight: 900;
+      position: relative;
+      max-width: 700px; margin: 0 auto;
+      line-height: 1.2;
+    }
+    .break-banner p {
+      font-size: 18px; color: var(--silver-dim);
+      margin-top: 12px; position: relative;
+    }
+
+    /* ── VIDEO SHOWCASE ── */
+    #vision {
+      background: var(--bg2);
+      padding: 120px 0;
+      position: relative; overflow: hidden;
+    }
+    #vision::before {
+      content: '';
+      position: absolute;
+      width: 900px; height: 900px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 55%);
+      z-index: 0;
+    }
+    .video-showcase {
+      margin-top: 48px;
+      position: relative; z-index: 1;
+    }
+    .video-frame {
+      background: rgba(10,16,32,0.9);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(59,130,246,0.05),
+        0 25px 80px rgba(0,0,0,0.5),
+        0 0 100px rgba(59,130,246,0.1),
+        0 0 160px rgba(124,58,237,0.05);
+      transition: box-shadow .5s;
+    }
+    .video-frame:hover {
+      box-shadow:
+        0 0 0 1px rgba(59,130,246,0.1),
+        0 30px 100px rgba(0,0,0,0.5),
+        0 0 120px rgba(59,130,246,0.15),
+        0 0 200px rgba(124,58,237,0.08);
+    }
+    .video-toolbar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 20px;
+      background: rgba(59,130,246,0.05);
+      border-bottom: 1px solid rgba(59,130,246,0.1);
+    }
+    .video-toolbar .dots { display: flex; gap: 6px; }
+    .video-toolbar .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .video-toolbar .dot-r { background: #ef4444; }
+    .video-toolbar .dot-y { background: #eab308; }
+    .video-toolbar .dot-g { background: #22c55e; }
+    .video-toolbar .title {
+      font-size: 12px; font-weight: 600; color: var(--silver-dim);
+      letter-spacing: .04em;
+    }
+    .video-frame video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ── DEMO ── */
+    #demo {
+      background: var(--bg);
+      padding: 120px 0;
+      position: relative; overflow: hidden;
+    }
+    #demo::before {
+      content: '';
+      position: absolute;
+      width: 800px; height: 800px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 60%);
+      z-index: 0;
+    }
+    #demo::after {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(124,58,237,0.06) 0%, transparent 60%);
+      z-index: 0;
+    }
+    .demo-container {
+      margin-top: 48px;
+      position: relative; z-index: 1;
+    }
+    .demo-spreadsheet {
+      background: rgba(10,16,32,0.9);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(59,130,246,0.05),
+        0 20px 60px rgba(0,0,0,0.5),
+        0 0 80px rgba(59,130,246,0.08),
+        0 0 120px rgba(124,58,237,0.04);
+      transition: box-shadow .5s;
+    }
+    .demo-spreadsheet:hover {
+      box-shadow:
+        0 0 0 1px rgba(59,130,246,0.1),
+        0 25px 80px rgba(0,0,0,0.5),
+        0 0 100px rgba(59,130,246,0.12),
+        0 0 160px rgba(124,58,237,0.06);
+    }
+    .demo-toolbar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 20px;
+      background: rgba(59,130,246,0.05);
+      border-bottom: 1px solid rgba(59,130,246,0.1);
+    }
+    .demo-toolbar .dots { display: flex; gap: 6px; }
+    .demo-toolbar .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .demo-toolbar .dot-r { background: #ef4444; }
+    .demo-toolbar .dot-y { background: #eab308; }
+    .demo-toolbar .dot-g { background: #22c55e; }
+    .demo-toolbar .title {
+      font-size: 12px; font-weight: 600; color: var(--silver-dim);
+      letter-spacing: .04em;
+    }
+    .demo-toolbar .live-indicator {
+      margin-left: auto;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 600; color: var(--green);
+      text-transform: uppercase; letter-spacing: .08em;
+    }
+    .demo-toolbar .live-dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: dotPulse 1.5s infinite;
+      box-shadow: 0 0 8px var(--green);
+    }
+    .demo-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(59,130,246,0.08);
+      overflow-x: auto;
+      background: rgba(0,0,0,0.2);
+    }
+    .demo-tab {
+      padding: 13px 28px;
+      font-size: 13px; font-weight: 600;
+      color: var(--silver-dim);
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+      background: none; border-top: none; border-left: none; border-right: none;
+      font-family: inherit;
+      position: relative;
+    }
+    .demo-tab:hover { color: var(--white); background: rgba(59,130,246,0.03); }
+    .demo-tab.active {
+      color: var(--blue-glow);
+      border-bottom-color: var(--blue);
+      background: rgba(59,130,246,0.05);
+    }
+    .demo-content { padding: 0; min-height: 340px; }
+    .demo-panel { display: none; }
+    .demo-panel.active { display: block; animation: fadeIn .4s ease; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Spreadsheet table */
+    .sheet-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .sheet-table th {
+      text-align: left; padding: 11px 16px;
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      color: var(--silver-dim);
+      background: rgba(59,130,246,0.03);
+      border-bottom: 1px solid rgba(59,130,246,0.08);
+      white-space: nowrap;
+    }
+    .sheet-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+      color: var(--silver);
+      white-space: nowrap;
+    }
+    .sheet-table tbody tr {
+      transition: all .2s;
+    }
+    .sheet-table tbody tr:hover td {
+      background: rgba(59,130,246,0.04);
+    }
+    .status {
+      display: inline-block; padding: 3px 10px;
+      border-radius: 100px; font-size: 11px; font-weight: 600;
+    }
+    .status-green { background: rgba(74,222,128,0.12); color: var(--green); }
+    .status-blue { background: rgba(59,130,246,0.12); color: var(--blue-glow); }
+    .status-amber { background: rgba(251,191,36,0.12); color: var(--amber); }
+    .status-red { background: rgba(248,113,113,0.12); color: var(--red); }
+    .score {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 50%;
+      font-size: 12px; font-weight: 700;
+    }
+    .score-high { background: rgba(74,222,128,0.15); color: var(--green); box-shadow: 0 0 10px rgba(74,222,128,0.1); }
+    .score-med { background: rgba(251,191,36,0.15); color: var(--amber); }
+    .ai-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; color: var(--blue-glow); font-weight: 600;
+    }
+    .ai-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--blue-glow);
+      border-radius: 50%;
+      animation: dotPulse 2s infinite;
+      box-shadow: 0 0 6px var(--blue-glow);
+    }
+
+    .demo-insight {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(124,58,237,0.03));
+      border-top: 1px solid rgba(59,130,246,0.1);
+    }
+    .demo-insight .ai-icon {
+      width: 32px; height: 32px; min-width: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(124,58,237,0.15));
+      border: 1px solid rgba(59,130,246,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 800; flex-shrink: 0;
+      color: var(--blue-glow);
+      box-shadow: 0 0 12px rgba(59,130,246,0.15);
+    }
+    .demo-insight .typing-text {
+      font-size: 13px; color: var(--silver);
+      line-height: 1.5;
+    }
+    .demo-insight .typing-text strong { color: var(--blue-glow); }
+    .typing-cursor {
+      display: inline-block;
+      width: 2px; height: 14px;
+      background: var(--blue-glow);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: cursorBlink .8s step-end infinite;
+    }
+    @keyframes cursorBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ── HOW IT WORKS ── */
+    #how {
+      background: var(--bg2);
+      position: relative;
+    }
+    #how::before {
+      content: '';
+      position: absolute; bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(74,222,128,0.05) 0%, transparent 70%);
+    }
+    .how-flow {
+      display: flex; align-items: stretch;
+      gap: 0; margin-top: 56px;
+      justify-content: center;
+      position: relative;
+    }
+    .how-step {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; flex: 1; max-width: 200px;
+      gap: 14px; padding: 0 8px;
+    }
+    .how-circle {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: rgba(59,130,246,0.08);
+      border: 2px solid var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 0 30px rgba(59,130,246,0.15), inset 0 0 20px rgba(59,130,246,0.05);
+      position: relative;
+      transition: all .3s;
+    }
+    .how-step:hover .how-circle {
+      box-shadow: 0 0 40px rgba(59,130,246,0.25), inset 0 0 20px rgba(59,130,246,0.1);
+      transform: scale(1.08);
+    }
+    .how-circle .num {
+      position: absolute; top: -4px; right: -4px;
+      width: 22px; height: 22px;
+      background: linear-gradient(135deg, var(--blue), #7c3aed);
+      border-radius: 50%;
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      box-shadow: 0 0 10px rgba(59,130,246,0.3);
+    }
+    .how-step h4 { font-size: 14px; font-weight: 700; color: var(--white); }
+    .how-step p { font-size: 13px; color: var(--silver-dim); line-height: 1.5; }
+    .how-arrow {
+      color: var(--blue); font-size: 24px; opacity: .3;
+      display: flex; align-items: center;
+      padding-bottom: 40px;
+      animation: arrowPulse 2s ease-in-out infinite;
+    }
+    @keyframes arrowPulse {
+      0%, 100% { opacity: .2; }
+      50% { opacity: .6; }
+    }
+    .how-time {
+      text-align: center; margin-top: 48px;
+      padding: 28px 32px;
+      background: linear-gradient(135deg, rgba(74,222,128,0.06), rgba(74,222,128,0.02));
+      border: 1px solid rgba(74,222,128,0.15);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .how-time::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(74,222,128,0.05), transparent);
+    }
+    .how-time .big {
+      font-size: 44px; font-weight: 900;
+      background: linear-gradient(135deg, var(--green), #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+    .how-time p { font-size: 15px; color: var(--silver-dim); margin-top: 4px; position: relative; }
+
+    /* ── AGENTS ── */
+    #agents {
+      background: var(--bg);
+      padding: 120px 0;
+      position: relative; overflow: hidden;
+    }
+    #agents::before {
+      content: '';
+      position: absolute;
+      width: 1000px; height: 600px;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse, rgba(59,130,246,0.06) 0%, transparent 60%);
+    }
+    .agent-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px; margin-top: 48px;
+      position: relative; z-index: 1;
+    }
+    .agent-card {
+      background: linear-gradient(180deg, rgba(59,130,246,0.04) 0%, rgba(6,10,20,0.8) 100%);
+      border: 1px solid rgba(59,130,246,0.12);
+      border-radius: 16px;
+      padding: 28px 22px;
+      position: relative; overflow: hidden;
+      transition: all .4s cubic-bezier(.25,.46,.45,.94);
+    }
+    .agent-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue), #7c3aed, transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .agent-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(59,130,246,0.08) 0%, transparent 60%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .agent-card:hover {
+      border-color: rgba(59,130,246,0.25);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(59,130,246,0.08), 0 0 60px rgba(59,130,246,0.04);
+    }
+    .agent-card:hover::before, .agent-card:hover::after { opacity: 1; }
+    .agent-card > * { position: relative; z-index: 1; }
+    .agent-emoji { font-size: 36px; margin-bottom: 14px; }
+    .agent-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .agent-card .role {
+      font-size: 11px; color: var(--blue-glow); font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      margin-bottom: 18px;
+    }
+    .agent-card ul { list-style: none; }
+    .agent-card ul li {
+      font-size: 13px; color: var(--silver-dim);
+      padding: 5px 0;
+      display: flex; align-items: baseline; gap: 8px;
+    }
+    .agent-card ul li::before {
+      content: ''; width: 5px; height: 5px;
+      background: var(--blue); border-radius: 50%;
+      flex-shrink: 0; margin-top: 6px;
+      box-shadow: 0 0 6px var(--blue);
+    }
+    .agent-quote {
+      margin-top: 16px;
+      padding: 12px 14px;
+      background: rgba(59,130,246,0.05);
+      border-left: 2px solid var(--blue);
+      border-radius: 0 8px 8px 0;
+      font-size: 12px; color: var(--silver);
+      font-style: italic;
+      min-height: 60px;
+    }
+
+    /* ── OUTCOMES ── */
+    #outcomes {
+      background: var(--bg2);
+      padding: 120px 0;
+      position: relative;
+    }
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 48px;
+    }
+    .outcome-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      text-align: center;
+      transition: all .4s;
+      position: relative; overflow: hidden;
+    }
+    .outcome-card::before {
+      content: '';
+      position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100px; height: 100px;
+      background: radial-gradient(circle, rgba(59,130,246,0.1), transparent);
+      opacity: 0; transition: opacity .3s;
+    }
+    .outcome-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 40px rgba(59,130,246,0.06);
+    }
+    .outcome-card:hover::before { opacity: 1; }
+    .outcome-number {
+      font-size: 48px; font-weight: 900;
+      background: linear-gradient(135deg, var(--blue-glow), #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .outcome-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .outcome-card p { font-size: 13px; color: var(--silver-dim); }
+
+    /* ── TRADES ── */
+    #trades {
+      background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    #trades::before {
+      content: '';
+      position: absolute; left: -200px; top: 50%;
+      transform: translateY(-50%);
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(59,130,246,0.06), transparent);
+    }
+    .trades-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-top: 48px;
+      position: relative; z-index: 1;
+    }
+    .trade-card {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(59,130,246,0.03);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all .3s;
+    }
+    .trade-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(59,130,246,0.06);
+    }
+    .trade-icon { font-size: 28px; }
+    .trade-card h4 { font-size: 14px; font-weight: 600; }
+    .trade-card p { font-size: 12px; color: var(--silver-dim); margin-top: 2px; }
+
+    /* ── PRICING ── */
+    #pricing {
+      background: var(--bg2);
+      padding: 120px 0;
+      position: relative; overflow: hidden;
+    }
+    #pricing::before {
+      content: '';
+      position: absolute; top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 400px;
+      background: radial-gradient(ellipse, rgba(59,130,246,0.06), transparent);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin-top: 48px;
+      align-items: start;
+      position: relative; z-index: 1;
+    }
+    .pricing-card {
+      background: rgba(10,16,32,0.8);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px 28px;
+      position: relative; overflow: hidden;
+      transition: all .4s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+    .pricing-card.featured {
+      border-color: rgba(59,130,246,0.3);
+      box-shadow: 0 0 40px rgba(59,130,246,0.08), 0 0 80px rgba(124,58,237,0.04);
+      transform: scale(1.03);
+    }
+    .pricing-card.featured:hover {
+      transform: scale(1.03) translateY(-4px);
+      box-shadow: 0 0 50px rgba(59,130,246,0.12), 0 0 100px rgba(124,58,237,0.06);
+    }
+    .pricing-badge {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 32px;
+      background: linear-gradient(135deg, var(--blue), #7c3aed);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: white;
+    }
+    .pricing-card.featured { padding-top: 68px; }
+    .pricing-tier {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      margin-bottom: 8px;
+    }
+    .tier-green { color: var(--green); }
+    .tier-blue { color: var(--blue-glow); }
+    .tier-purple { color: #a78bfa; }
+    .pricing-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+    .pricing-price {
+      font-size: 40px; font-weight: 900;
+      margin-bottom: 4px;
+    }
+    .pricing-price span { font-size: 16px; font-weight: 500; color: var(--silver-dim); }
+    .pricing-setup {
+      font-size: 12px; color: var(--silver-dim);
+      margin-bottom: 24px;
+    }
+    .pricing-features { list-style: none; margin-bottom: 28px; }
+    .pricing-features li {
+      font-size: 13px; color: var(--silver);
+      padding: 6px 0;
+      display: flex; align-items: baseline; gap: 8px;
+    }
+    .pricing-features li::before {
+      content: '';
+      width: 16px; height: 16px; flex-shrink: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234ade80' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/contain no-repeat;
+    }
+    .pricing-btn {
+      display: block; width: 100%; text-align: center;
+      padding: 13px;
+      border-radius: 10px;
+      font-size: 14px; font-weight: 600;
+      text-decoration: none;
+      transition: all .3s;
+      cursor: pointer;
+    }
+    .pricing-btn-primary {
+      background: linear-gradient(135deg, var(--blue), #7c3aed);
+      color: white; border: none;
+      box-shadow: 0 4px 15px rgba(59,130,246,0.2);
+    }
+    .pricing-btn-primary:hover {
+      box-shadow: 0 6px 25px rgba(59,130,246,0.35);
+      transform: translateY(-1px);
+    }
+    .pricing-btn-ghost {
+      background: transparent; color: var(--silver);
+      border: 1px solid var(--border);
+    }
+    .pricing-btn-ghost:hover { border-color: var(--blue); color: var(--blue-glow); }
+
+    .pricing-founding {
+      margin-top: 40px;
+      padding: 32px;
+      background: linear-gradient(135deg, rgba(74,222,128,0.06), rgba(74,222,128,0.02));
+      border: 1px solid rgba(74,222,128,0.15);
+      border-radius: 16px;
+      text-align: center;
+      position: relative; z-index: 1;
+      overflow: hidden;
+    }
+    .pricing-founding::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(74,222,128,0.04), transparent);
+    }
+    .pricing-founding h4 {
+      font-size: 18px; font-weight: 800;
+      color: var(--green); margin-bottom: 10px;
+      position: relative;
+    }
+    .pricing-founding p { font-size: 15px; color: var(--silver-dim); position: relative; }
+    .pricing-founding strong { color: var(--white); }
+
+    /* ── TRUST ── */
+    #trust { background: var(--bg); }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px; margin-top: 48px;
+    }
+    .trust-card {
+      display: flex; gap: 16px; align-items: flex-start;
+      background: rgba(59,130,246,0.02);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all .3s;
+    }
+    .trust-card:hover {
+      border-color: rgba(59,130,246,0.2);
+      transform: translateY(-2px);
+    }
+    .trust-icon {
+      width: 46px; height: 46px; min-width: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(124,58,237,0.08));
+      border: 1px solid rgba(59,130,246,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .trust-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .trust-card p { font-size: 13px; color: var(--silver-dim); line-height: 1.6; }
+
+    /* ── FOUNDER ── */
+    #founder {
+      background: var(--bg2);
+      position: relative; overflow: hidden;
+    }
+    #founder::before {
+      content: '';
+      position: absolute; left: 0; top: 0;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(59,130,246,0.06), transparent);
+    }
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 60px; align-items: center;
+      margin-top: 48px;
+      position: relative; z-index: 1;
+    }
+    .founder-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(124,58,237,0.04));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      position: relative; overflow: hidden;
+    }
+    .founder-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .founder-image::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 20px;
+      background: linear-gradient(135deg, transparent 60%, rgba(59,130,246,0.1));
+      z-index: 1;
+    }
+    .founder-text h3 { font-size: 26px; font-weight: 800; margin-bottom: 8px; }
+    .founder-text .title-role {
+      font-size: 14px; font-weight: 600;
+      background: linear-gradient(135deg, var(--blue-glow), #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+    .founder-text p {
+      font-size: 15px; color: var(--silver-dim); margin-bottom: 14px;
+      line-height: 1.7;
+    }
+    .founder-creds {
+      display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px;
+    }
+    .founder-cred {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px;
+      background: rgba(59,130,246,0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 12px; color: var(--silver); font-weight: 500;
+      transition: all .2s;
+    }
+    .founder-cred:hover {
+      border-color: rgba(59,130,246,0.2);
+      background: rgba(59,130,246,0.08);
+    }
+
+    /* ── CTA ── */
+    #cta {
+      text-align: center;
+      padding: 140px 24px;
+      position: relative; overflow: hidden;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+    }
+    #cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 50% 50%, rgba(59,130,246,0.1) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(124,58,237,0.06) 0%, transparent 60%);
+    }
+    .cta-ring {
+      position: absolute;
+      width: 500px; height: 500px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(59,130,246,0.08);
+      animation: ringRotate 25s linear infinite;
+    }
+    .cta-ring::before {
+      content: '';
+      position: absolute;
+      width: 6px; height: 6px;
+      background: var(--blue-glow);
+      border-radius: 50%;
+      top: -3px; left: 50%;
+      box-shadow: 0 0 15px var(--blue-glow);
+    }
+    #cta .container { position: relative; z-index: 1; }
+    #cta .section-title { font-size: clamp(30px, 5vw, 52px); }
+    #cta .section-sub { margin: 16px auto 44px; text-align: center; }
+    .cta-note {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--silver-dim);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid rgba(59,130,246,0.06);
+      padding: 48px 24px;
+      position: relative; z-index: 1;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-left { font-size: 13px; color: var(--silver-dim); }
+    .footer-left a { color: var(--blue-glow); text-decoration: none; }
+    .footer-right { font-size: 12px; color: var(--silver-dim); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .agent-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin-left: auto; margin-right: auto; }
+      .pricing-card.featured { transform: none; }
+      .pricing-card.featured:hover { transform: translateY(-4px); }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .nav-mobile { display: block; }
+      .pain-grid, .outcome-grid, .trades-grid { grid-template-columns: 1fr; }
+      .agent-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .founder-grid { grid-template-columns: 1fr; gap: 32px; }
+      .how-flow { flex-direction: column; align-items: center; }
+      .how-arrow { transform: rotate(90deg); padding: 0; }
+      .counter-bar-inner { gap: 24px; }
+      .hero-ring, .hero-ring-2 { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="assets/digitalverse_base_logo_final.png" alt="Digitalverse" />
+    <span class="nav-logo-text">Digital<span>verse</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#vision">The Vision</a></li>
+    <li><a href="#demo">See It Work</a></li>
+    <li><a href="#agents">AI Agents</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#founder">About</a></li>
+  </ul>
+  <a class="nav-cta" href="#cta">Book a Free Demo</a>
+  <button class="nav-mobile" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring hero-ring-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Now serving Western Sydney & Blue Mountains
+    </div>
+    <h1 class="hero-title">
+      Stop losing jobs.<br>
+      <span class="highlight">Start scaling with AI.</span>
+    </h1>
+    <p class="hero-sub">
+      Your AI front office captures every lead, books every job, and gives you full visibility across your business — in plain English, 24/7.
+    </p>
+    <div class="hero-stat">
+      Trade businesses lose an average of $126,000/year from missed enquiries.
+    </div>
+    <div class="hero-actions">
+      <a href="#vision" class="btn-primary">See The Vision</a>
+      <a href="#pricing" class="btn-ghost">View Pricing</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-dot"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- COUNTER BAR -->
+<div class="counter-bar">
+  <div class="container">
+    <div class="counter-bar-inner">
+      <div class="counter-item">
+        <div class="number" data-target="60" data-prefix="<" data-suffix="s">&lt; 0s</div>
+        <div class="label">Lead Response Time</div>
+      </div>
+      <div class="counter-item">
+        <div class="number">24/7</div>
+        <div class="label">Always On</div>
+      </div>
+      <div class="counter-item">
+        <div class="number" data-target="4" data-suffix="">0</div>
+        <div class="label">AI Agents Working For You</div>
+      </div>
+      <div class="counter-item">
+        <div class="number">$0</div>
+        <div class="label">Extra Staff Needed</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AGENTFORGE VISION VIDEO -->
+<section id="vision">
+  <div class="container-wide">
+    <div class="reveal" style="text-align:center;position:relative;z-index:1">
+      <div class="tag">The Vision</div>
+      <h2 class="section-title">Six systems. One AI platform.<br><span style="color:var(--blue-glow)">Complete control.</span></h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Your CRM, accounting, scheduling, email, inventory and invoicing — all connected through Agentforge. Purpose-built AI agents manage every function. You just ask in plain English.</p>
+    </div>
+    <div class="video-showcase reveal" style="transition-delay:.15s">
+      <div class="video-frame">
+        <div class="video-toolbar">
+          <div class="dots">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+          </div>
+          <span class="title">Agentforge — The Vision</span>
+        </div>
+        <video autoplay loop muted playsinline>
+          <source src="assets/agentforge-vision.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section id="pain">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="tag">Sound Familiar?</div>
+      <h2 class="section-title">You're great at your trade.<br>The business side is killing you.</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">You didn't start a business to chase missed calls, drown in admin, and wonder where the next job's coming from.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal" style="transition-delay:.1s">
+        <div class="pain-icon">📵</div>
+        <h3>Missed Calls = Missed Money</h3>
+        <p>You're on a job site. Phone's ringing. By the time you call back, they've gone to someone else. Every missed call costs $300 – $1,500.</p>
+      </div>
+      <div class="pain-card reveal" style="transition-delay:.2s">
+        <div class="pain-icon">📋</div>
+        <h3>Admin Is Eating Your Nights</h3>
+        <p>Quoting, booking, following up, updating spreadsheets. You finish jobs at 5 and start admin at 8pm. That's not sustainable.</p>
+      </div>
+      <div class="pain-card reveal" style="transition-delay:.3s">
+        <div class="pain-icon">🔍</div>
+        <h3>No Visibility On Your Business</h3>
+        <p>How many leads came in this month? What's your conversion rate? Where's your revenue actually coming from? You shouldn't have to guess.</p>
+      </div>
+      <div class="pain-card reveal" style="transition-delay:.4s">
+        <div class="pain-icon">📊</div>
+        <h3>Feast or Famine</h3>
+        <p>Some weeks you're turning work away. Others it's dead quiet. Without a proper pipeline, cash flow is a rollercoaster.</p>
+      </div>
+      <div class="pain-card reveal" style="transition-delay:.5s">
+        <div class="pain-icon">🤷</div>
+        <h3>"I'm a Tradie, Not a Tech Person"</h3>
+        <p>You've tried apps and tools before. They didn't stick. You don't want another login, another dashboard, another thing to manage.</p>
+      </div>
+      <div class="pain-card reveal" style="transition-delay:.6s">
+        <div class="pain-icon">⏰</div>
+        <h3>11pm Enquiries Go Nowhere</h3>
+        <p>Half your leads come after hours. They fill out a form or leave a message and hear nothing until tomorrow — if they hear back at all.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BREAK BANNER -->
+<div class="break-banner reveal">
+  <h2>What if every lead was captured, qualified, and booked — <span style="color:var(--blue-glow)">before you put your drill down?</span></h2>
+  <p>That's exactly what Agentforge does. Watch it happen live.</p>
+</div>
+
+<!-- DEMO -->
+<section id="demo">
+  <div class="container-wide">
+    <div class="reveal" style="text-align:center;position:relative;z-index:1">
+      <div class="tag tag-green">Live Demo</div>
+      <h2 class="section-title">See what your AI team looks like.</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Four AI agents manage your leads, sales, finances, and operations. Ask anything in plain English. Get answers instantly.</p>
+    </div>
+    <div class="demo-container reveal" style="transition-delay:.15s">
+      <div class="demo-spreadsheet">
+        <div class="demo-toolbar">
+          <div class="dots">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+          </div>
+          <span class="title">Agentforge Command Centre</span>
+          <div class="live-indicator">
+            <span class="live-dot"></span>
+            Live
+          </div>
+        </div>
+        <div class="demo-tabs">
+          <button class="demo-tab active" onclick="switchTab(this, 'tab-sales')">Sales & Leads</button>
+          <button class="demo-tab" onclick="switchTab(this, 'tab-gm')">General Manager</button>
+          <button class="demo-tab" onclick="switchTab(this, 'tab-finance')">Finance</button>
+          <button class="demo-tab" onclick="switchTab(this, 'tab-ops')">Operations</button>
+        </div>
+        <div class="demo-content">
+          <!-- SALES & LEADS -->
+          <div class="demo-panel active" id="tab-sales">
+            <table class="sheet-table">
+              <thead>
+                <tr><th>Lead</th><th>Service</th><th>Suburb</th><th>Score</th><th>Est. Value</th><th>Status</th><th>AI Action</th></tr>
+              </thead>
+              <tbody>
+                <tr><td style="font-weight:600;color:var(--white)">Sarah Mitchell</td><td>Hot Water Replacement</td><td>Penrith</td><td><span class="score score-high">92</span></td><td style="color:var(--green)">$2,400</td><td><span class="status status-green">Booked</span></td><td><span class="ai-badge">Callback booked 9am</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Mark Thompson</td><td>Switchboard Upgrade</td><td>Katoomba</td><td><span class="score score-high">87</span></td><td style="color:var(--green)">$3,800</td><td><span class="status status-blue">Proposal Sent</span></td><td><span class="ai-badge">Follow-up tomorrow</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">James Chen</td><td>Solar Panel Install</td><td>Emu Plains</td><td><span class="score score-med">68</span></td><td style="color:var(--amber)">$8,500</td><td><span class="status status-amber">Qualifying</span></td><td><span class="ai-badge">Comparing 3 quotes</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Lisa Park</td><td>Blocked Drain</td><td>Blacktown</td><td><span class="score score-high">95</span></td><td style="color:var(--green)">$450</td><td><span class="status status-green">Booked</span></td><td><span class="ai-badge">Emergency — today 2pm</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">David Wu</td><td>AC Install x3</td><td>Springwood</td><td><span class="score score-high">84</span></td><td style="color:var(--green)">$6,200</td><td><span class="status status-blue">Site Visit Set</span></td><td><span class="ai-badge">Quote prep underway</span></td></tr>
+              </tbody>
+            </table>
+            <div class="demo-insight">
+              <div class="ai-icon">AI</div>
+              <div class="typing-text" data-text='<strong>Sales Agent:</strong> "5 leads this week, 3 booked, est. pipeline value $21,350. Sarah Mitchell&rsquo;s hot water job is urgent — I&rsquo;ve booked her in for first thing tomorrow."'></div>
+            </div>
+          </div>
+
+          <!-- GENERAL MANAGER -->
+          <div class="demo-panel" id="tab-gm">
+            <table class="sheet-table">
+              <thead>
+                <tr><th>Metric</th><th>This Week</th><th>Last Week</th><th>Trend</th><th>AI Insight</th></tr>
+              </thead>
+              <tbody>
+                <tr><td style="font-weight:600;color:var(--white)">New Leads</td><td>12</td><td>8</td><td style="color:var(--green)">+50%</td><td><span class="ai-badge">Facebook ad driving volume</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Conversion Rate</td><td>68%</td><td>55%</td><td style="color:var(--green)">+13pts</td><td><span class="ai-badge">Faster responses helping</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Revenue Booked</td><td>$18,400</td><td>$14,200</td><td style="color:var(--green)">+30%</td><td><span class="ai-badge">2 high-value jobs landed</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Avg Response Time</td><td>42 sec</td><td>4.2 hrs</td><td style="color:var(--green)">-99%</td><td><span class="ai-badge">AI handles instantly</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Jobs Completed</td><td>9</td><td>7</td><td style="color:var(--green)">+29%</td><td><span class="ai-badge">Scheduling optimised</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Customer Satisfaction</td><td>4.9/5</td><td>4.6/5</td><td style="color:var(--green)">+0.3</td><td><span class="ai-badge">Faster booking = happier</span></td></tr>
+              </tbody>
+            </table>
+            <div class="demo-insight">
+              <div class="ai-icon">AI</div>
+              <div class="typing-text" data-text='<strong>General Manager:</strong> "Strong week. Revenue up 30%, conversion jumped to 68%. Your Facebook ad is working — I&rsquo;d recommend increasing the budget by $50/week while it&rsquo;s hot."'></div>
+            </div>
+          </div>
+
+          <!-- FINANCE -->
+          <div class="demo-panel" id="tab-finance">
+            <table class="sheet-table">
+              <thead>
+                <tr><th>Item</th><th>Amount</th><th>Status</th><th>Due</th><th>AI Action</th></tr>
+              </thead>
+              <tbody>
+                <tr><td style="font-weight:600;color:var(--white)">Invoice #247 — Mitchell</td><td style="color:var(--green)">$2,400</td><td><span class="status status-green">Paid</span></td><td>3 Apr</td><td><span class="ai-badge">Receipt sent</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Invoice #244 — Roberts</td><td style="color:var(--amber)">$1,800</td><td><span class="status status-amber">Overdue</span></td><td>28 Mar</td><td><span class="ai-badge">Reminder sent today</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Quote #Q-89 — Wu</td><td>$6,200</td><td><span class="status status-blue">Pending</span></td><td>8 Apr</td><td><span class="ai-badge">Follow-up scheduled</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Monthly Revenue</td><td style="color:var(--green)">$42,600</td><td><span class="status status-green">On Track</span></td><td>—</td><td><span class="ai-badge">+18% vs last month</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Outstanding Receivables</td><td style="color:var(--red)">$4,200</td><td><span class="status status-red">Action Needed</span></td><td>—</td><td><span class="ai-badge">3 invoices chased</span></td></tr>
+              </tbody>
+            </table>
+            <div class="demo-insight">
+              <div class="ai-icon">AI</div>
+              <div class="typing-text" data-text='<strong>Finance Agent:</strong> "Revenue is $42,600 this month, up 18%. Roberts&rsquo; $1,800 invoice is 9 days overdue — I&rsquo;ve sent a polite reminder. Cash flow looks healthy for the next 2 weeks."'></div>
+            </div>
+          </div>
+
+          <!-- OPERATIONS -->
+          <div class="demo-panel" id="tab-ops">
+            <table class="sheet-table">
+              <thead>
+                <tr><th>Job</th><th>Customer</th><th>Scheduled</th><th>Assigned To</th><th>Status</th><th>AI Action</th></tr>
+              </thead>
+              <tbody>
+                <tr><td style="font-weight:600;color:var(--white)">Hot Water Replace</td><td>Sarah Mitchell</td><td>Tomorrow 7:30am</td><td>Mike</td><td><span class="status status-green">Confirmed</span></td><td><span class="ai-badge">Parts ordered</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Blocked Drain</td><td>Lisa Park</td><td>Today 2:00pm</td><td>Dave</td><td><span class="status status-amber">En Route</span></td><td><span class="ai-badge">Customer notified ETA</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Switchboard Upgrade</td><td>Mark Thompson</td><td>Thursday 9:00am</td><td>Steve</td><td><span class="status status-blue">Scheduled</span></td><td><span class="ai-badge">Safety check booked</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">AC Install x3</td><td>David Wu</td><td>Next Monday</td><td>Mike + Dave</td><td><span class="status status-blue">Prep</span></td><td><span class="ai-badge">Site visit Wednesday</span></td></tr>
+                <tr><td style="font-weight:600;color:var(--white)">Solar Panels</td><td>James Chen</td><td>TBD</td><td>Unassigned</td><td><span class="status status-amber">Awaiting Quote</span></td><td><span class="ai-badge">Measurements needed</span></td></tr>
+              </tbody>
+            </table>
+            <div class="demo-insight">
+              <div class="ai-icon">AI</div>
+              <div class="typing-text" data-text='<strong>Ops Agent:</strong> "Today: 1 job active (Lisa Park — Dave en route). Tomorrow: Mike&rsquo;s on the Mitchell hot water job at 7:30. Thursday&rsquo;s looking light — want me to bring forward the Wu site visit?"'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="tag">How It Works</div>
+      <h2 class="section-title">From enquiry to booked job.<br>Under 60 seconds.</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">No apps to learn. No dashboards to check. Your AI front office handles it all and tells you what you need to know.</p>
+    </div>
+    <div class="how-flow reveal" style="transition-delay:.1s">
+      <div class="how-step">
+        <div class="how-circle">📥<span class="num">1</span></div>
+        <h4>Lead Arrives</h4>
+        <p>Web form, phone call, or email — any time, day or night</p>
+      </div>
+      <div class="how-arrow">&#8594;</div>
+      <div class="how-step">
+        <div class="how-circle">🧠<span class="num">2</span></div>
+        <h4>AI Qualifies</h4>
+        <p>Scores the lead, estimates value, writes a plain-English summary</p>
+      </div>
+      <div class="how-arrow">&#8594;</div>
+      <div class="how-step">
+        <div class="how-circle">📅<span class="num">3</span></div>
+        <h4>Job Booked</h4>
+        <p>Calendar invite sent, CRM updated, customer confirmed</p>
+      </div>
+      <div class="how-arrow">&#8594;</div>
+      <div class="how-step">
+        <div class="how-circle">📲<span class="num">4</span></div>
+        <h4>You Get Notified</h4>
+        <p>Score, details, and AI summary — ready to go when you are</p>
+      </div>
+    </div>
+    <div class="how-time reveal" style="transition-delay:.2s">
+      <div class="big">&lt; 60 seconds</div>
+      <p>From enquiry to booked callback. Every time. Even at 11pm on a Sunday.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section id="agents">
+  <div class="container-wide">
+    <div class="reveal" style="text-align:center;position:relative;z-index:1">
+      <div class="tag">Your AI Team</div>
+      <h2 class="section-title">Four agents. Zero new hires.</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Each agent handles a different part of your business. Ask any of them anything in plain English — they know your business inside out.</p>
+    </div>
+    <div class="agent-grid">
+      <div class="agent-card reveal" style="transition-delay:.1s">
+        <div class="agent-emoji">🎯</div>
+        <h3>Sales & Leads Agent</h3>
+        <div class="role">Never miss a lead again</div>
+        <ul>
+          <li>Captures every enquiry instantly</li>
+          <li>Scores and qualifies leads automatically</li>
+          <li>Books callbacks into your calendar</li>
+          <li>Sends personalised responses</li>
+          <li>Follows up so you don't have to</li>
+        </ul>
+        <div class="agent-quote" data-agent-text='"You had 5 new leads this week. I&rsquo;ve booked 3 callbacks and sent follow-ups to the other 2."'></div>
+      </div>
+      <div class="agent-card reveal" style="transition-delay:.2s">
+        <div class="agent-emoji">📊</div>
+        <h3>General Manager</h3>
+        <div class="role">Full business visibility</div>
+        <ul>
+          <li>Tracks KPIs across your whole business</li>
+          <li>Spots trends before you see them</li>
+          <li>Weekly summaries in plain English</li>
+          <li>Flags risks and opportunities</li>
+          <li>Coordinates the other agents</li>
+        </ul>
+        <div class="agent-quote" data-agent-text='"Revenue is up 30% this month. Your conversion rate jumped after we reduced response time to under a minute."'></div>
+      </div>
+      <div class="agent-card reveal" style="transition-delay:.3s">
+        <div class="agent-emoji">💰</div>
+        <h3>Finance Agent</h3>
+        <div class="role">Cash flow clarity</div>
+        <ul>
+          <li>Tracks invoices and payments</li>
+          <li>Chases overdue invoices politely</li>
+          <li>Revenue forecasting and trends</li>
+          <li>Expense tracking visibility</li>
+          <li>Monthly financial snapshots</li>
+        </ul>
+        <div class="agent-quote" data-agent-text='"$4,200 outstanding across 3 invoices. I&rsquo;ve sent reminders. Cash flow looks healthy for the next fortnight."'></div>
+      </div>
+      <div class="agent-card reveal" style="transition-delay:.4s">
+        <div class="agent-emoji">⚙️</div>
+        <h3>Operations Agent</h3>
+        <div class="role">Jobs running smoothly</div>
+        <ul>
+          <li>Schedule management and optimisation</li>
+          <li>Job tracking from booking to completion</li>
+          <li>Team assignment and coordination</li>
+          <li>Customer notifications and updates</li>
+          <li>Flags scheduling conflicts early</li>
+        </ul>
+        <div class="agent-quote" data-agent-text='"Tomorrow: 2 jobs booked. Thursday&rsquo;s light — want me to move the Wu site visit forward?"'></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BREAK BANNER 2 -->
+<div class="break-banner reveal">
+  <h2>Ask your business anything. <span style="color:var(--green)">Get the answer instantly.</span></h2>
+  <p>"How many leads came in this week?" "What's my cash flow looking like?" "Book Sarah in for Thursday." — Just type it.</p>
+</div>
+
+<!-- OUTCOMES -->
+<section id="outcomes">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="tag">Results That Matter</div>
+      <h2 class="section-title">What changes when AI runs your front office.</h2>
+    </div>
+    <div class="outcome-grid">
+      <div class="outcome-card reveal" style="transition-delay:.1s">
+        <div class="outcome-number">0</div>
+        <h3>Missed Leads</h3>
+        <p>Every enquiry captured and responded to — day, night, weekends, public holidays.</p>
+      </div>
+      <div class="outcome-card reveal" style="transition-delay:.2s">
+        <div class="outcome-number">60s</div>
+        <h3>Response Time</h3>
+        <p>From enquiry to qualified lead with a booked callback. That used to take 4 hours.</p>
+      </div>
+      <div class="outcome-card reveal" style="transition-delay:.3s">
+        <div class="outcome-number">100%</div>
+        <h3>Business Visibility</h3>
+        <p>Revenue, pipeline, schedule, cash flow — ask any question in plain English, get an instant answer.</p>
+      </div>
+      <div class="outcome-card reveal" style="transition-delay:.4s">
+        <div class="outcome-number">10+</div>
+        <h3>Hours Saved Per Week</h3>
+        <p>No more evening admin, manual follow-ups, or chasing paperwork. The AI handles it.</p>
+      </div>
+      <div class="outcome-card reveal" style="transition-delay:.5s">
+        <div class="outcome-number">$126K</div>
+        <h3>Revenue Protected</h3>
+        <p>The average revenue lost to missed enquiries each year. That money stays in your pocket now.</p>
+      </div>
+      <div class="outcome-card reveal" style="transition-delay:.6s">
+        <div class="outcome-number">1</div>
+        <h3>System To Learn</h3>
+        <p>Talk to it like a person. "How many leads this week?" "Book Sarah in for Thursday." That's it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRADES -->
+<section id="trades">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="tag">Built For Trades</div>
+      <h2 class="section-title">Whatever your trade, we've got you covered.</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Agentforge is pre-configured for the trades that power Western Sydney and the Blue Mountains.</p>
+    </div>
+    <div class="trades-grid">
+      <div class="trade-card reveal" style="transition-delay:.05s"><div class="trade-icon">🔧</div><div><h4>Plumbing</h4><p>Emergency callouts captured and booked instantly</p></div></div>
+      <div class="trade-card reveal" style="transition-delay:.1s"><div class="trade-icon">⚡</div><div><h4>Electrical</h4><p>Quote requests scored and routed by job size</p></div></div>
+      <div class="trade-card reveal" style="transition-delay:.15s"><div class="trade-icon">☀️</div><div><h4>Solar</h4><p>Multi-quote shoppers identified and fast-tracked</p></div></div>
+      <div class="trade-card reveal" style="transition-delay:.2s"><div class="trade-icon">❄️</div><div><h4>HVAC & Air Con</h4><p>Seasonal surge managed without extra staff</p></div></div>
+      <div class="trade-card reveal" style="transition-delay:.25s"><div class="trade-icon">🐜</div><div><h4>Pest Control</h4><p>Urgent jobs prioritised, routine bookings automated</p></div></div>
+      <div class="trade-card reveal" style="transition-delay:.3s"><div class="trade-icon">🌿</div><div><h4>Landscaping</h4><p>Project enquiries enriched with suburb and scope</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="reveal" style="text-align:center;position:relative;z-index:1">
+      <div class="tag">Simple Pricing</div>
+      <h2 class="section-title">One missed job pays for months of Agentforge.</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Every plan includes dedicated hardware, full setup, and ongoing optimisation. We manage everything — you focus on the work.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal" style="transition-delay:.1s">
+        <div class="pricing-tier tier-green">Foundation</div>
+        <h3>AI Front Office</h3>
+        <div class="pricing-price">$990<span>/month</span></div>
+        <div class="pricing-setup">$2,500 one-off setup &middot; 12 month min</div>
+        <ul class="pricing-features">
+          <li>Dedicated AI hardware (Mac Mini)</li>
+          <li>24/7 lead capture and scoring</li>
+          <li>Automated booking workflow</li>
+          <li>Customer confirmation emails</li>
+          <li>CRM integration</li>
+          <li>Sales notifications to your phone</li>
+          <li>Monthly optimisation session</li>
+        </ul>
+        <a href="#cta" class="pricing-btn pricing-btn-ghost">Get Started</a>
+      </div>
+      <div class="pricing-card featured reveal" style="transition-delay:.2s">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-tier tier-blue">Growth</div>
+        <h3>AI Front Office + Voice</h3>
+        <div class="pricing-price">$1,990<span>/month</span></div>
+        <div class="pricing-setup">$5,000 one-off setup &middot; 12 month min</div>
+        <ul class="pricing-features">
+          <li>Everything in Foundation</li>
+          <li>AI voice receptionist (answers calls)</li>
+          <li>Dedicated AU business number</li>
+          <li>Up to 2 automated workflows</li>
+          <li>Advanced lead routing</li>
+          <li>Enhanced CRM mapping</li>
+          <li>Fortnightly optimisation sessions</li>
+        </ul>
+        <a href="#cta" class="pricing-btn pricing-btn-primary">Get Started</a>
+      </div>
+      <div class="pricing-card reveal" style="transition-delay:.3s">
+        <div class="pricing-tier tier-purple">Front Office Pro</div>
+        <h3>Full AI Operations</h3>
+        <div class="pricing-price">Custom</div>
+        <div class="pricing-setup">Custom setup &middot; 12 month min</div>
+        <ul class="pricing-features">
+          <li>Everything in Growth</li>
+          <li>Multi-channel intake (web + voice + email)</li>
+          <li>3+ automated workflows</li>
+          <li>Deep CRM & ops integration</li>
+          <li>Complex routing & business rules</li>
+          <li>Weekly optimisation</li>
+          <li>Priority support + dedicated channel</li>
+        </ul>
+        <a href="#cta" class="pricing-btn pricing-btn-ghost">Talk to Us</a>
+      </div>
+    </div>
+    <div class="pricing-founding reveal" style="transition-delay:.35s">
+      <h4>Founding Member Offer — First 10 Customers Only</h4>
+      <p><strong>$990/month locked for life.</strong> Setup fee waived. Priority onboarding. Direct line to our founder.<br>We're looking for 10 trade businesses in Western Sydney to be our founding partners.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="tag">Built For Trust</div>
+      <h2 class="section-title">No risk. No lock-in anxiety. No tech headaches.</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card reveal" style="transition-delay:.1s">
+        <div class="trust-icon">🛡️</div>
+        <div><h4>Your Data Stays On Your Hardware</h4><p>Everything runs on a dedicated Mac Mini in your business. We never store your customer data on our servers. It's yours.</p></div>
+      </div>
+      <div class="trust-card reveal" style="transition-delay:.15s">
+        <div class="trust-icon">🧑</div>
+        <div><h4>You Stay In Control</h4><p>AI handles the capture and admin. You make the decisions. It's a tool, not a replacement.</p></div>
+      </div>
+      <div class="trust-card reveal" style="transition-delay:.2s">
+        <div class="trust-icon">🔧</div>
+        <div><h4>We Manage Everything</h4><p>No portals. No logins. No training. We set it up, run it, and optimise it. You just use it.</p></div>
+      </div>
+      <div class="trust-card reveal" style="transition-delay:.25s">
+        <div class="trust-icon">💬</div>
+        <div><h4>Talk To It Like A Person</h4><p>"Kylie's handling leads this week." "Move Thursday's job to Friday." That's how you manage your AI team.</p></div>
+      </div>
+      <div class="trust-card reveal" style="transition-delay:.3s">
+        <div class="trust-icon">💸</div>
+        <div><h4>Pays For Itself Immediately</h4><p>One captured lead covers months of fees. The average missed job costs $300–$1,500. How many do you miss a week?</p></div>
+      </div>
+      <div class="trust-card reveal" style="transition-delay:.35s">
+        <div class="trust-icon">🤝</div>
+        <div><h4>Enterprise Quality, Tradie Price</h4><p>Built by someone who saved Westpac $200M. Delivered at a price that makes sense for your business.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-image reveal">
+        <img src="assets/IMG_0130.jpeg" alt="Simon De Greyte — Founder of Digitalverse" />
+      </div>
+      <div class="founder-text reveal" style="transition-delay:.1s">
+        <div class="tag">Meet The Founder</div>
+        <h3>Simon De Greyte</h3>
+        <div class="title-role">Founder & Managing Director, Digitalverse</div>
+        <p>25 years in enterprise technology. Led a $200M cost savings programme at Westpac. Scaled Microsoft's APAC infrastructure. Served on governance boards for some of Australia's largest institutions.</p>
+        <p>Now? I'm taking that same enterprise-grade thinking and applying it to the businesses that actually power this country — the tradies, the service operators, the people who are too busy doing great work to answer the phone at 11pm.</p>
+        <p style="color:var(--white);font-weight:600">I live in Western Sydney. I built this for my neighbours.</p>
+        <div class="founder-creds">
+          <div class="founder-cred">🏦 Westpac — $200M Programme</div>
+          <div class="founder-cred">💻 Microsoft — APAC Infrastructure</div>
+          <div class="founder-cred">🥈 NSW Masters Weightlifting Silver</div>
+          <div class="founder-cred">📍 Western Sydney Local</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-ring"></div>
+  <div class="container reveal">
+    <div class="tag tag-green">Let's Talk</div>
+    <h2 class="section-title">See it work for your business.<br>In 10 minutes.</h2>
+    <p class="section-sub">We'll submit a test enquiry for your actual trade, and you'll watch the AI capture it, qualify it, and book a callback — live. No slides. No sales pitch. Just the product.</p>
+    <div class="hero-actions">
+      <a href="mailto:hello@digitalverse.com.au?subject=I%20want%20to%20see%20a%20demo" class="btn-primary">Book a Free Demo</a>
+      <a href="tel:+61XXXXXXXXX" class="btn-ghost">Call Simon Directly</a>
+    </div>
+    <p class="cta-note">No commitment. 10-minute demo. We'll show you exactly how it works for your trade.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        &copy; 2026 <a href="#">Digitalverse</a> &middot; AI Infrastructure for Australian Trade Businesses<br>
+        Western Sydney & Blue Mountains
+      </div>
+      <div class="footer-right">
+        <a href="mailto:hello@digitalverse.com.au" style="color:var(--blue-glow);text-decoration:none">hello@digitalverse.com.au</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── PARTICLES ──
+  (function() {
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const count = 60;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 1.5 + 0.5,
+        o: Math.random() * 0.3 + 0.1
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(96,165,250,${p.o})`;
+        ctx.fill();
+      });
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(59,130,246,${0.06 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  })();
+
+  // ── TAB SWITCHING ──
+  function switchTab(btn, panelId) {
+    document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.demo-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+
+    // Trigger typing for new tab
+    const panel = document.getElementById(panelId);
+    const typingEl = panel.querySelector('.typing-text');
+    if (typingEl) typeWriter(typingEl);
+  }
+
+  // ── TYPING EFFECT ──
+  function typeWriter(el) {
+    const fullText = el.getAttribute('data-text');
+    if (!fullText) return;
+    el.innerHTML = '<span class="typing-cursor"></span>';
+    let i = 0;
+    let inTag = false;
+    let tagBuffer = '';
+
+    function type() {
+      if (i >= fullText.length) {
+        // Remove cursor when done
+        const cursor = el.querySelector('.typing-cursor');
+        if (cursor) setTimeout(() => cursor.remove(), 2000);
+        return;
+      }
+      const char = fullText[i];
+
+      if (char === '<') inTag = true;
+      if (inTag) {
+        tagBuffer += char;
+        if (char === '>') {
+          inTag = false;
+          const cursor = el.querySelector('.typing-cursor');
+          if (cursor) cursor.insertAdjacentHTML('beforebegin', tagBuffer);
+          tagBuffer = '';
+        }
+        i++;
+        type();
+        return;
+      }
+
+      const cursor = el.querySelector('.typing-cursor');
+      if (cursor) cursor.insertAdjacentText('beforebegin', char);
+      i++;
+      setTimeout(type, 12 + Math.random() * 18);
+    }
+    type();
+  }
+
+  // ── SCROLL REVEAL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+
+        // Start typing for demo insights that become visible
+        const typingEl = e.target.querySelector('.typing-text[data-text]');
+        if (typingEl && !typingEl.dataset.typed) {
+          typingEl.dataset.typed = '1';
+          setTimeout(() => typeWriter(typingEl), 600);
+        }
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── AGENT QUOTE TYPING ──
+  const agentQuoteObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const quote = e.target;
+        const text = quote.getAttribute('data-agent-text');
+        if (text && !quote.dataset.typed) {
+          quote.dataset.typed = '1';
+          quote.innerHTML = '<span class="typing-cursor"></span>';
+          let i = 0;
+          function typeQuote() {
+            if (i >= text.length) {
+              const c = quote.querySelector('.typing-cursor');
+              if (c) setTimeout(() => c.remove(), 2000);
+              return;
+            }
+            // Handle HTML entities
+            if (text[i] === '&') {
+              const end = text.indexOf(';', i);
+              if (end !== -1) {
+                const entity = text.substring(i, end + 1);
+                const c = quote.querySelector('.typing-cursor');
+                if (c) c.insertAdjacentHTML('beforebegin', entity);
+                i = end + 1;
+                setTimeout(typeQuote, 12 + Math.random() * 18);
+                return;
+              }
+            }
+            const c = quote.querySelector('.typing-cursor');
+            if (c) c.insertAdjacentText('beforebegin', text[i]);
+            i++;
+            setTimeout(typeQuote, 15 + Math.random() * 25);
+          }
+          setTimeout(typeQuote, 300);
+        }
+        agentQuoteObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.agent-quote[data-agent-text]').forEach(el => agentQuoteObserver.observe(el));
+
+  // ── NAV SCROLL ──
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ── COUNTER ANIMATION ──
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const target = parseInt(el.dataset.target);
+        if (!target) return;
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        let current = 0;
+        const step = Math.ceil(target / 30);
+        const interval = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(interval);
+          }
+          el.textContent = prefix + ' ' + current + suffix;
+        }, 40);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+
+  // ── INITIAL TYPING for active demo panel ──
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const activePanel = document.querySelector('.demo-panel.active .typing-text[data-text]');
+      if (activePanel && !activePanel.dataset.typed) {
+        activePanel.dataset.typed = '1';
+        typeWriter(activePanel);
+      }
+    }, 1500);
+  });
+</script>
+</body>
+</html>
