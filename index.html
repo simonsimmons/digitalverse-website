@@ -684,6 +684,91 @@
       50% { opacity: 0; }
     }
 
+    /* ── LIVE PREVIEW ── */
+    #live-preview {
+      background: var(--bg2);
+      padding: 120px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    #live-preview::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(59,130,246,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .preview-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .preview-header .section-title { margin-bottom: 16px; }
+    .preview-header .section-sub { margin: 0 auto 32px; }
+    .preview-cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .preview-frame-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(59,130,246,0.15);
+      box-shadow: 0 0 60px rgba(59,130,246,0.12), 0 24px 80px rgba(0,0,0,0.5);
+      background: #0a0c12;
+      position: relative;
+    }
+    .preview-frame-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .preview-frame-bar .dots { display: flex; gap: 6px; }
+    .preview-frame-bar .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .preview-frame-bar .dot-r { background: #ff5f57; }
+    .preview-frame-bar .dot-y { background: #febc2e; }
+    .preview-frame-bar .dot-g { background: #28c840; }
+    .preview-frame-bar .address-bar {
+      flex: 1;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 12px;
+      color: var(--silver-dim);
+      text-align: center;
+      font-family: monospace;
+      margin: 0 12px;
+    }
+    .preview-live-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .preview-live-badge .live-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .preview-frame-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 680px;
+      border: none;
+    }
+    @media(max-width:768px) {
+      .preview-frame-wrap iframe { height: 520px; }
+    }
+
     /* ── HOW IT WORKS ── */
     #how {
       background: var(--bg2);
@@ -1242,13 +1327,14 @@
     <span class="nav-logo-text">Digital<span>verse</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#vision">The Vision</a></li>
+    <li><a href="#vision">Watch It In Action</a></li>
     <li><a href="#demo">See It Work</a></li>
+    <li><a href="#live-preview">Live Preview</a></li>
     <li><a href="#agents">AI Agents</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#founder">About</a></li>
   </ul>
-  <a class="nav-cta" href="#cta">Book a Free Demo</a>
+  <a class="nav-cta" href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener">Book a Free Demo</a>
   <button class="nav-mobile" onclick="document.querySelector('.nav-links').style.display = document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex'">&#9776;</button>
 </nav>
 
@@ -1274,7 +1360,7 @@
       Trade businesses lose an average of $126,000/year from missed enquiries.
     </div>
     <div class="hero-actions">
-      <a href="#vision" class="btn-primary">See The Vision</a>
+      <a href="#vision" class="btn-primary">Watch It In Action</a>
       <a href="#pricing" class="btn-ghost">View Pricing</a>
     </div>
   </div>
@@ -1498,6 +1584,42 @@
   </div>
 </section>
 
+<!-- LIVE PREVIEW -->
+<section id="live-preview">
+  <div class="container reveal">
+    <div class="preview-header">
+      <div class="tag tag-green">Live Preview</div>
+      <h2 class="section-title">Try it yourself — right now.</h2>
+      <p class="section-sub" style="max-width:600px">This is the actual Digitalverse AI answering a real enquiry for a trade business. Enter your details and see exactly how your future customers will experience it.</p>
+    </div>
+  </div>
+  <div class="container-wide reveal" style="transition-delay:.1s">
+    <div class="preview-frame-wrap">
+      <div class="preview-frame-bar">
+        <div class="dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <div class="address-bar">demo-digitalverse.vercel.app</div>
+        <div class="preview-live-badge">
+          <span class="live-dot"></span>
+          Live
+        </div>
+      </div>
+      <iframe
+        src="https://demo-digitalverse.vercel.app"
+        title="Digitalverse Live Preview"
+        loading="lazy"
+        allow="clipboard-write"
+      ></iframe>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--silver-dim);margin-top:20px">
+      Prefer to talk to a person? <a href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener" style="color:var(--blue-glow);text-decoration:none">Book a free 10-minute demo &rarr;</a>
+    </p>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section id="how">
   <div class="container">
@@ -1693,7 +1815,7 @@
           <li>Sales notifications to your phone</li>
           <li>Monthly optimisation session</li>
         </ul>
-        <a href="#cta" class="pricing-btn pricing-btn-ghost">Get Started</a>
+        <a href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener" class="pricing-btn pricing-btn-ghost">Get Started</a>
       </div>
       <div class="pricing-card featured reveal" style="transition-delay:.2s">
         <div class="pricing-badge">Most Popular</div>
@@ -1710,7 +1832,7 @@
           <li>Enhanced CRM mapping</li>
           <li>Fortnightly optimisation sessions</li>
         </ul>
-        <a href="#cta" class="pricing-btn pricing-btn-primary">Get Started</a>
+        <a href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener" class="pricing-btn pricing-btn-primary">Get Started</a>
       </div>
       <div class="pricing-card reveal" style="transition-delay:.3s">
         <div class="pricing-tier tier-purple">Front Office Pro</div>
@@ -1805,7 +1927,7 @@
     <h2 class="section-title">See it work for your business.<br>In 10 minutes.</h2>
     <p class="section-sub">We'll submit a test enquiry for your actual trade, and you'll watch the AI capture it, qualify it, and book a callback — live. No slides. No sales pitch. Just the product.</p>
     <div class="hero-actions">
-      <a href="mailto:hello@digitalverse.com.au?subject=I%20want%20to%20see%20a%20demo" class="btn-primary">Book a Free Demo</a>
+      <a href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener" class="btn-primary">Book a Free Demo</a>
       <a href="mailto:simmo@digitalverse.com.au" class="btn-ghost">Email Simon</a>
     </div>
     <p class="cta-note">No commitment. 10-minute demo. We'll show you exactly how it works for your trade.</p>
