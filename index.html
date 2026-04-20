@@ -1138,6 +1138,212 @@
     .pricing-founding p { font-size: 15px; color: var(--silver-dim); position: relative; }
     .pricing-founding strong { color: var(--white); }
 
+    /* ── PANTHERS CAMPAIGN ── */
+    #panthers {
+      background: var(--bg2);
+      padding: 100px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    #panthers::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 20% 50%, rgba(232,97,26,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 50%, rgba(59,130,246,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .panthers-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .panthers-left { display: flex; flex-direction: column; gap: 20px; }
+    .tag-orange {
+      color: #E8611A;
+      border-color: rgba(232,97,26,0.35);
+      background: rgba(232,97,26,0.08);
+    }
+    .panthers-headline {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      color: var(--white);
+    }
+    .panthers-headline span { color: #E8611A; }
+    .panthers-sub {
+      font-size: 16px;
+      color: var(--silver-dim);
+      line-height: 1.7;
+    }
+    .panthers-prizes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 4px 0;
+    }
+    .prize-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--silver);
+      font-weight: 500;
+    }
+    .prize-line::before {
+      content: '';
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(232,97,26,0.15);
+      border: 1px solid rgba(232,97,26,0.4);
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23E8611A' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .panthers-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: #E8611A;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .panthers-how {
+      font-size: 13px;
+      color: var(--silver-dim);
+      line-height: 1.6;
+      border-left: 2px solid rgba(232,97,26,0.4);
+      padding-left: 14px;
+    }
+    .panthers-how strong { color: var(--white); }
+    .panthers-closes {
+      font-size: 12px;
+      color: var(--silver-dim);
+      margin-top: 4px;
+    }
+    .btn-orange {
+      display: inline-block;
+      background: linear-gradient(135deg, #E8611A, #c94e12);
+      color: #fff;
+      border-radius: 12px;
+      padding: 16px 36px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .3s;
+      box-shadow: 0 4px 20px rgba(232,97,26,0.35);
+      align-self: flex-start;
+    }
+    .btn-orange:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(232,97,26,0.5);
+    }
+    .panthers-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+    .panthers-logo-wrap {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(232,97,26,0.2);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 0 60px rgba(232,97,26,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .panthers-logo-wrap img {
+      width: 160px;
+      height: auto;
+    }
+    .panthers-video-placeholder {
+      width: 100%;
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed rgba(232,97,26,0.3);
+      border-radius: 16px;
+      padding: 36px 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .panthers-video-placeholder .play-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(232,97,26,0.12);
+      border: 1px solid rgba(232,97,26,0.3);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .panthers-video-placeholder .play-icon svg {
+      width: 18px; height: 18px; fill: #E8611A; margin-left: 3px;
+    }
+    .panthers-video-placeholder p {
+      font-size: 13px;
+      color: var(--silver-dim);
+      line-height: 1.5;
+    }
+    .panthers-video-placeholder strong {
+      color: var(--silver);
+      display: block;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+    /* Countdown */
+    .panthers-countdown {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .countdown-num {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.02em;
+      font-variant-numeric: tabular-nums;
+      min-width: 52px;
+      text-align: center;
+      background: rgba(232,97,26,0.08);
+      border: 1px solid rgba(232,97,26,0.2);
+      border-radius: 10px;
+      padding: 8px 4px;
+    }
+    .countdown-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+    }
+    .countdown-sep {
+      font-size: 24px;
+      font-weight: 700;
+      color: rgba(232,97,26,0.5);
+      align-self: center;
+      margin-bottom: 18px;
+    }
+    @media(max-width: 860px) {
+      .panthers-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .panthers-right { order: -1; }
+      .panthers-logo-wrap img { width: 120px; }
+      .btn-orange { align-self: stretch; text-align: center; }
+    }
+
     /* ── TRUST ── */
     #trust { background: var(--bg); }
     .trust-grid {
@@ -1332,6 +1538,7 @@
     <li><a href="#live-preview">Live Preview</a></li>
     <li><a href="#agents">AI Agents</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#panthers" style="color:#E8611A;font-weight:600">&#127944; Win $30K</a></li>
     <li><a href="#founder">About</a></li>
   </ul>
   <a class="nav-cta" href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener">Book a Free Demo</a>
@@ -1858,6 +2065,78 @@
   </div>
 </section>
 
+<!-- PANTHERS CAMPAIGN -->
+<section id="panthers">
+  <div class="panthers-wrap reveal">
+
+    <!-- LEFT: Copy -->
+    <div class="panthers-left">
+      <div class="tag tag-orange">&#127944; Founding Member Offer &mdash; Closes 31 May 2026</div>
+      <h2 class="panthers-headline">Win 12 Months of Agentforge<br><span>+ Panthers Directors Club.</span></h2>
+      <p class="panthers-sub">We're giving one Western Sydney business the full Agentforge Growth package — setup included, 12 months free — plus 2 x Directors Club tickets to Panthers vs Rabbitohs, Friday 3 July at CommBank Stadium.</p>
+
+      <div class="panthers-prizes">
+        <div class="prize-line">Agentforge Growth — 12 months, setup fee waived</div>
+        <div class="prize-line">AI voice receptionist, 24/7 lead capture &amp; CRM</div>
+        <div class="prize-line">Fortnightly optimisation sessions with Simon</div>
+        <div class="prize-line">2 x Penrith Panthers Directors Club tickets — 3 July</div>
+        <div class="prize-line">Pre-game hospitality &amp; premium seating</div>
+      </div>
+
+      <div class="panthers-value">Total prize value: $30,000+</div>
+
+      <div class="panthers-how">
+        <strong>How to enter:</strong> Book a Free Demo before 31 May 2026. That's it.<br>
+        We'll pick the business we think Agentforge can help the most. One entry per business.
+      </div>
+
+      <a href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener" class="btn-orange">Enter to Win &rarr;</a>
+
+      <p class="panthers-closes">&#x1F512; Entries close 31 May 2026 &middot; Australian businesses only &middot; One entry per business</p>
+    </div>
+
+    <!-- RIGHT: Logo + Video placeholder + Countdown -->
+    <div class="panthers-right">
+      <div class="panthers-logo-wrap">
+        <img src="assets/panthers-logo.svg" alt="Penrith Panthers" />
+      </div>
+
+      <div class="panthers-video-placeholder">
+        <div class="play-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p>
+          <strong>Watch: Our AI Bought the Tickets</strong>
+          See how Marvin — our AI — sourced and booked Panthers hospitality in under 60 seconds. Video coming soon.
+        </p>
+      </div>
+
+      <div class="panthers-countdown">
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-days">--</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-hours">--</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-mins">--</div>
+          <div class="countdown-label">Mins</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-unit">
+          <div class="countdown-num" id="cd-secs">--</div>
+          <div class="countdown-label">Secs</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- TRUST -->
 <section id="trust">
   <div class="container">
@@ -1950,6 +2229,37 @@
 </footer>
 
 <script>
+  // ── COUNTDOWN ──
+  (function() {
+    const deadline = new Date('2026-05-31T23:59:59+10:00').getTime();
+    function tick() {
+      const now = Date.now();
+      const diff = deadline - now;
+      if (diff <= 0) {
+        ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = '00';
+        });
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      const fmt = n => String(n).padStart(2,'0');
+      const days = document.getElementById('cd-days');
+      const hours = document.getElementById('cd-hours');
+      const mins = document.getElementById('cd-mins');
+      const secs = document.getElementById('cd-secs');
+      if (days) days.textContent = fmt(d);
+      if (hours) hours.textContent = fmt(h);
+      if (mins) mins.textContent = fmt(m);
+      if (secs) secs.textContent = fmt(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
   // ── PARTICLES ──
   (function() {
     const canvas = document.getElementById('particles');

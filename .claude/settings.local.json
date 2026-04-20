@@ -9,7 +9,9 @@
       "Bash(mdfind -name node)",
       "Bash(grep -i \"bin/node$\")",
       "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh)",
-      "Bash(bash)"
+      "Bash(bash)",
+      "Bash(pip3 install *)",
+      "Bash(ls /Users/simondegreyte/Digitalverse/website/*.png /Users/simondegreyte/Digitalverse/website/*.svg /Users/simondegreyte/Digitalverse/website/*.jpg)"
     ]
   }
 }
