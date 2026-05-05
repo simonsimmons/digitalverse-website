@@ -1182,6 +1182,119 @@
     .trade-card h4 { font-size: 14px; font-weight: 600; }
     .trade-card p { font-size: 12px; color: var(--silver-dim); margin-top: 2px; }
 
+    /* ── JOURNEY (Onboard. Scale Up. Transform.) ── */
+    #journey {
+      background: var(--bg);
+      padding: 120px 0;
+      position: relative; overflow: hidden;
+    }
+    #journey::before {
+      content: '';
+      position: absolute; top: 15%; left: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(96,165,250,0.10), transparent 60%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    #journey::after {
+      content: '';
+      position: absolute; bottom: 10%; right: -200px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(74,222,128,0.08), transparent 60%);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    .journey-tagline {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--silver-dim);
+    }
+    .journey-tagline .t-1 { color: #c084fc; }
+    .journey-tagline .t-2 { color: var(--blue-glow); }
+    .journey-tagline .t-3 { color: var(--green); }
+    .journey-wrap {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 56px;
+      margin-top: 56px;
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+    .journey-photo {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(59,130,246,0.15);
+    }
+    .journey-photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: saturate(1.05);
+    }
+    .journey-photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6,10,20,0) 55%, rgba(6,10,20,0.92));
+      pointer-events: none;
+    }
+    .journey-photo-caption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 24px 28px;
+      font-size: 14px; font-weight: 500;
+      color: var(--silver);
+      letter-spacing: 0.01em;
+      z-index: 2;
+    }
+    .journey-photo-caption strong { color: var(--white); font-weight: 700; }
+    .journey-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .journey-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      padding: 26px 28px;
+      background: rgba(10,16,32,0.6);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: transform .3s ease, border-color .3s ease;
+    }
+    .journey-step:hover {
+      transform: translateY(-2px);
+      border-color: rgba(96,165,250,0.4);
+    }
+    .journey-step-num {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      font-feature-settings: 'tnum';
+    }
+    .journey-step.s1 .journey-step-num { color: #c084fc; }
+    .journey-step.s2 .journey-step-num { color: var(--blue-glow); }
+    .journey-step.s3 .journey-step-num { color: var(--green); }
+    .journey-step h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .journey-step p {
+      font-size: 15px;
+      color: var(--silver-dim);
+      line-height: 1.6;
+    }
+    @media (max-width: 900px) {
+      .journey-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .journey-photo { max-width: 480px; margin: 0 auto; }
+    }
+
     /* ── PRICING ── */
     #pricing {
       background: var(--bg2);
@@ -2171,6 +2284,49 @@
   </div>
 </section>
 
+<!-- JOURNEY -->
+<section id="journey">
+  <div class="container-wide">
+    <div class="reveal" style="text-align:center;position:relative;z-index:1">
+      <div class="tag">How We Work With You</div>
+      <h2 class="section-title"><span style="color:#c084fc">Onboard.</span> <span style="color:var(--blue-glow)">Scale Up.</span> <span style="color:var(--green)">Transform.</span></h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Three phases. One partnership. Real outcomes you can measure from week one &mdash; not month twelve.</p>
+    </div>
+    <div class="journey-wrap reveal" style="transition-delay:.15s">
+      <div class="journey-photo">
+        <img src="assets/onboarding%20shot.jpg" alt="Digitalverse onboarding session — Simon working through workflows with a foundation customer team" loading="lazy" />
+        <div class="journey-photo-caption">
+          <strong>Real onboarding. Real conversation.</strong><br>
+          A Digitalverse foundation customer session in Sydney.
+        </div>
+      </div>
+      <div class="journey-steps">
+        <div class="journey-step s1">
+          <div class="journey-step-num">01</div>
+          <div>
+            <h3>Onboard</h3>
+            <p>We learn your business inside out &mdash; your trades, your pipeline, your pain points. We map how you work today and configure Agentforge around you. No generic templates. No tech jargon. Just a conversation.</p>
+          </div>
+        </div>
+        <div class="journey-step s2">
+          <div class="journey-step-num">02</div>
+          <div>
+            <h3>Scale Up</h3>
+            <p>Your AI front office goes live. Every call captured, every lead booked, every customer followed up &mdash; 24/7. We tune in real time, week by week, until it's running better than a full admin team.</p>
+          </div>
+        </div>
+        <div class="journey-step s3">
+          <div class="journey-step-num">03</div>
+          <div>
+            <h3>Transform</h3>
+            <p>Once the front office is humming, we expand. New agents. New workflows. New leverage. Your business becomes a system that scales &mdash; without scaling headcount.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section id="pricing">
   <div class="container">
@@ -2368,7 +2524,10 @@
     <div class="footer-inner">
       <div class="footer-left">
         &copy; 2026 <a href="#">Digitalverse</a> &middot; AI Infrastructure for Australian Trade Businesses<br>
-        Western Sydney & Blue Mountains
+        Western Sydney &amp; Blue Mountains
+        <div style="margin-top:14px;font-size:11px;font-weight:700;letter-spacing:0.32em;text-transform:uppercase;color:var(--silver-dim)">
+          <span style="color:#c084fc">Onboard.</span> <span style="color:var(--blue-glow)">Scale Up.</span> <span style="color:var(--green)">Transform.</span>
+        </div>
       </div>
       <div class="footer-right">
         <a href="mailto:hello@digitalverse.com.au" style="color:var(--blue-glow);text-decoration:none">hello@digitalverse.com.au</a>
