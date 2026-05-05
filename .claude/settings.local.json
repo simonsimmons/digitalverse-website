@@ -11,7 +11,8 @@
       "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh)",
       "Bash(bash)",
       "Bash(pip3 install *)",
-      "Bash(ls /Users/simondegreyte/Digitalverse/website/*.png /Users/simondegreyte/Digitalverse/website/*.svg /Users/simondegreyte/Digitalverse/website/*.jpg)"
+      "Bash(ls /Users/simondegreyte/Digitalverse/website/*.png /Users/simondegreyte/Digitalverse/website/*.svg /Users/simondegreyte/Digitalverse/website/*.jpg)",
+      "Bash(sw_vers)"
     ]
   }
 }
