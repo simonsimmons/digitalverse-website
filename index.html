@@ -1710,7 +1710,7 @@
     <li><a href="#live-preview">Live Preview</a></li>
     <li><a href="#agents">AI Agents</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#panthers" style="color:#E8611A;font-weight:600">&#127944; Win $30K</a></li>
+    <li><a href="#panthers" style="color:#E8611A;font-weight:600">&#127944; Foundation Perk</a></li>
     <li><a href="#founder">About</a></li>
   </ul>
   <a class="nav-cta" href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener">Book a Free Demo</a>
@@ -2243,28 +2243,27 @@
 
     <!-- LEFT: Copy -->
     <div class="panthers-left">
-      <div class="tag tag-orange">&#127944; Founding Member Offer &mdash; Closes 31 May 2026</div>
-      <h2 class="panthers-headline">Win 12 Months of Agentforge<br><span>+ Panthers Directors Club.</span></h2>
-      <p class="panthers-sub">We're giving one Western Sydney business the full Agentforge Growth package — setup included, 12 months free — plus 2 x Directors Club tickets to Panthers vs Rabbitohs, Friday 3 July at CommBank Stadium.</p>
+      <div class="tag tag-orange">&#127944; Foundation Customer Benefit</div>
+      <h2 class="panthers-headline">A Day in the Chairman's Lounge.<br><span>On us.</span></h2>
+      <p class="panthers-sub">We're taking one of our Foundation Customers to a Penrith Panthers home game in the Chairman's Lounge — and giving them 12 months of Agentforge, free.</p>
 
       <div class="panthers-prizes">
-        <div class="prize-line">Agentforge Growth — 12 months, setup fee waived</div>
+        <div class="prize-line">12 months of Agentforge &mdash; setup fee waived</div>
         <div class="prize-line">AI voice receptionist, 24/7 lead capture &amp; CRM</div>
         <div class="prize-line">Fortnightly optimisation sessions with Simon</div>
-        <div class="prize-line">2 x Penrith Panthers Directors Club tickets — 3 July</div>
-        <div class="prize-line">Pre-game hospitality &amp; premium seating</div>
+        <div class="prize-line">Chairman's Lounge tickets to a Panthers home game</div>
+        <div class="prize-line">Premium hospitality &amp; pre-game experience</div>
       </div>
 
-      <div class="panthers-value">Total prize value: $30,000+</div>
+      <div class="panthers-value">Total value: $30,000+</div>
 
       <div class="panthers-how">
-        <strong>How to enter:</strong> Book a Free Demo before 31 May 2026. That's it.<br>
-        We'll pick the business we think Agentforge can help the most. One entry per business.
+        <strong>How it works:</strong> Become one of our Foundation Customers. We'll be selecting the business we think Agentforge has helped the most &mdash; and we'll be there to celebrate the win together.
       </div>
 
-      <a href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener" class="btn-orange">Enter to Win &rarr;</a>
+      <a href="https://inbound-leads-fawn.vercel.app" target="_blank" rel="noopener" class="btn-orange">Become a Foundation Customer &rarr;</a>
 
-      <p class="panthers-closes">&#x1F512; Entries close 31 May 2026 &middot; Australian businesses only &middot; One entry per business</p>
+      <p class="panthers-closes">&#x1F91D; Australian trade businesses only &middot; Foundation Customers only</p>
     </div>
 
     <!-- RIGHT: Logo + Video placeholder + Countdown -->
@@ -2279,30 +2278,8 @@
         </div>
         <p>
           <strong>Watch: Our AI Bought the Tickets</strong>
-          See how Marvin — our AI — sourced and booked Panthers hospitality in under 60 seconds. Video coming soon.
+          See how Marvin &mdash; our AI &mdash; sourced and booked Panthers hospitality in under 60 seconds. Video coming soon.
         </p>
-      </div>
-
-      <div class="panthers-countdown">
-        <div class="countdown-unit">
-          <div class="countdown-num" id="cd-days">--</div>
-          <div class="countdown-label">Days</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-unit">
-          <div class="countdown-num" id="cd-hours">--</div>
-          <div class="countdown-label">Hours</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-unit">
-          <div class="countdown-num" id="cd-mins">--</div>
-          <div class="countdown-label">Mins</div>
-        </div>
-        <div class="countdown-sep">:</div>
-        <div class="countdown-unit">
-          <div class="countdown-num" id="cd-secs">--</div>
-          <div class="countdown-label">Secs</div>
-        </div>
       </div>
     </div>
 
@@ -2401,37 +2378,6 @@
 </footer>
 
 <script>
-  // ── COUNTDOWN ──
-  (function() {
-    const deadline = new Date('2026-05-31T23:59:59+10:00').getTime();
-    function tick() {
-      const now = Date.now();
-      const diff = deadline - now;
-      if (diff <= 0) {
-        ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
-          const el = document.getElementById(id);
-          if (el) el.textContent = '00';
-        });
-        return;
-      }
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      const fmt = n => String(n).padStart(2,'0');
-      const days = document.getElementById('cd-days');
-      const hours = document.getElementById('cd-hours');
-      const mins = document.getElementById('cd-mins');
-      const secs = document.getElementById('cd-secs');
-      if (days) days.textContent = fmt(d);
-      if (hours) hours.textContent = fmt(h);
-      if (mins) mins.textContent = fmt(m);
-      if (secs) secs.textContent = fmt(s);
-    }
-    tick();
-    setInterval(tick, 1000);
-  })();
-
   // ── PARTICLES ──
   (function() {
     const canvas = document.getElementById('particles');
