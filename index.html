@@ -412,30 +412,18 @@
     }
 
     .hero-content { position: relative; z-index: 1; max-width: 860px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(74,222,128,0.08);
-      border: 1px solid rgba(74,222,128,0.2);
-      border-radius: 100px;
-      padding: 7px 18px;
-      font-size: 12px; font-weight: 600;
-      color: var(--green);
-      margin-bottom: 32px;
-      animation: badgePulse 3s ease-in-out infinite;
+    .hero-tagline {
+      display: inline-block;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.36em; text-transform: uppercase;
+      margin-bottom: 28px;
+      color: var(--silver-dim);
     }
-    @keyframes badgePulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.1); }
-      50% { box-shadow: 0 0 20px 4px rgba(74,222,128,0.08); }
-    }
-    .hero-badge .dot {
-      width: 7px; height: 7px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: dotPulse 2s infinite;
-    }
-    @keyframes dotPulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .4; transform: scale(.8); }
+    .hero-tagline .t-1 { color: #c084fc; }
+    .hero-tagline .t-2 { color: var(--blue-glow); }
+    .hero-tagline .t-3 { color: var(--green); }
+    @media (max-width: 600px) {
+      .hero-tagline { font-size: 11px; letter-spacing: 0.28em; }
     }
     .hero-title {
       font-size: clamp(40px, 7vw, 76px);
@@ -1909,9 +1897,8 @@
   <div class="hero-ring"></div>
   <div class="hero-ring hero-ring-2"></div>
   <div class="hero-content">
-    <div class="hero-badge">
-      <span class="dot"></span>
-      Now serving Western Sydney & Blue Mountains
+    <div class="hero-tagline">
+      <span class="t-1">Onboard.</span> <span class="t-2">Scale Up.</span> <span class="t-3">Transform.</span>
     </div>
     <h1 class="hero-title">
       Never miss another lead.<br>
