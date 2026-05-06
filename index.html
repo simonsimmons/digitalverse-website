@@ -17,11 +17,19 @@
   <meta property="og:description" content="The unfair advantage of the enterprise — for small business. A 24/7 AI front office that captures every lead, books every job, and runs your trade business in plain English." />
   <meta property="og:site_name" content="Digitalverse" />
   <meta property="og:locale" content="en_AU" />
+  <meta property="og:image" content="https://www.digitalverse.com.au/assets/digitalverse_logo_lockup_dark_background_onboard.png" />
+  <meta property="og:image:alt" content="Digitalverse — Onboard. Scale Up. Transform." />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Digitalverse — Never Miss a Lead | AI Front Office for Tradies" />
   <meta name="twitter:description" content="Enterprise-grade AI. Tradie simple. A 24/7 AI front office that captures every lead and books every job — even while you're on the tools." />
+  <meta name="twitter:image" content="https://www.digitalverse.com.au/assets/digitalverse_logo_lockup_dark_background_onboard.png" />
+  <meta name="twitter:image:alt" content="Digitalverse — Onboard. Scale Up. Transform." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/digitalverse_logo_icon_transparent_onboard.png" />
+  <link rel="apple-touch-icon" href="assets/digitalverse_logo_icon_transparent_onboard.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -35,7 +43,7 @@
     "name": "Digitalverse",
     "alternateName": "Digitalverse Agentforge",
     "url": "https://www.digitalverse.com.au/",
-    "logo": "https://www.digitalverse.com.au/assets/logo.png",
+    "logo": "https://www.digitalverse.com.au/assets/digitalverse_logo_lockup_dark_background_onboard.png",
     "description": "Digitalverse gives small trade businesses the unfair advantage of the enterprise: a 24/7 AI front office that captures every lead, books every job, and runs operations in plain English.",
     "slogan": "The unfair advantage of the enterprise — for small business.",
     "foundingDate": "2025",
@@ -273,15 +281,18 @@
       box-shadow: 0 4px 30px rgba(0,0,0,0.3);
     }
     .nav-logo {
-      display: flex; align-items: center; gap: 10px;
+      display: flex; align-items: center; gap: 12px;
       text-decoration: none;
     }
-    .nav-logo img { height: 34px; width: 34px; border-radius: 50%; }
+    .nav-logo img {
+      height: 38px; width: 38px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 12px rgba(96,165,250,0.18));
+    }
     .nav-logo-text {
-      font-size: 14px; font-weight: 700; letter-spacing: .06em;
+      font-size: 16px; font-weight: 700; letter-spacing: .14em;
       text-transform: uppercase; color: var(--white);
     }
-    .nav-logo-text span { color: var(--blue-glow); }
     .nav-links {
       display: flex; align-items: center; gap: 28px;
       list-style: none;
@@ -1873,9 +1884,9 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">
-    <img src="assets/digitalverse_base_logo_final.png" alt="Digitalverse" />
-    <span class="nav-logo-text">Digital<span>verse</span></span>
+  <a class="nav-logo" href="#hero">
+    <img src="assets/digitalverse_logo_icon_transparent_onboard.png" alt="Digitalverse" />
+    <span class="nav-logo-text">Digitalverse</span>
   </a>
   <ul class="nav-links">
     <li><a href="#vision">Watch It In Action</a></li>
