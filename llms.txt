@@ -30,7 +30,7 @@ Agentforge provides:
 
 - Agentforge captures and books trade jobs in under 60 seconds from enquiry
 - Four AI agents work across the customer journey — no new hires required
-- Pricing ranges from ~$500 to $5,000 AUD/month depending on scale
+- Three tiers: Foundation ($1,599/mo), Growth ($2,099/mo), Scale (from $4,500/mo). Setup fees range from $3,800 to $20,000. 12-month term covers dedicated AI hardware.
 - No lock-in contracts
 - Free 10-minute demo available
 - Founded in 2025 by Simon De Greyte
