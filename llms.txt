@@ -39,7 +39,7 @@ Agentforge provides:
 ## Primary pages
 
 - [Homepage](https://www.digitalverse.com.au/): Full product overview, pricing, founder story
-- [Book a Demo](https://inbound-leads-fawn.vercel.app): Free 10-minute demo booking
+- [Book a Demo](https://enquiries.digitalverse.com.au): Free 10-minute demo booking
 
 ## Contact
 
