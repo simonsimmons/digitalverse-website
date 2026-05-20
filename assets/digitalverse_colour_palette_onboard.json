@@ -1,0 +1,42 @@
+{
+  "brand": "Digitalverse",
+  "tagline": "ONBOARD. SCALE UP. TRANSFORM.",
+  "colours": [
+    {
+      "name": "Deep Space Navy",
+      "hex": "#030712",
+      "usage": "Primary dark background"
+    },
+    {
+      "name": "Digital Cyan",
+      "hex": "#00B7FF",
+      "usage": "Scale Up accent / links / highlights"
+    },
+    {
+      "name": "Agent Teal",
+      "hex": "#23E6B4",
+      "usage": "Transform accent / success / future-facing highlights"
+    },
+    {
+      "name": "Portal Purple",
+      "hex": "#BB46FF",
+      "usage": "Onboard accent / logo gradient"
+    },
+    {
+      "name": "Electric Blue",
+      "hex": "#326BFF",
+      "usage": "Logo gradient / network lines"
+    },
+    {
+      "name": "Soft White",
+      "hex": "#F5F7FA",
+      "usage": "Wordmark and primary text"
+    },
+    {
+      "name": "Slate Glow",
+      "hex": "#8EA0B8",
+      "usage": "Secondary text / subtle UI lines"
+    }
+  ],
+  "notes": "Updated tagline: ONBOARD. SCALE UP. TRANSFORM. These are raster brand assets extracted and redrawn from the generated direction; final production should be recreated as vector SVG."
+}
